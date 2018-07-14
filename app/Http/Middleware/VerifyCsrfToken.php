@@ -14,4 +14,13 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         //
     ];
+
+    public function handle($request, Closure $next)
+    {
+        if ($request->input("hub_mode") === "subscribe"
+            && $request->input("hub_verify_token") === env("MESSENGER_VERIFY_TOKEN")) {
+            return response($request->input("hub_challenge"), 200);
+        }
+        return $next($request);
+    }
 }
