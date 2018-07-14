@@ -2,6 +2,8 @@
 
 namespace App\Bot;
 
+use App\Bot\Chat;
+
 class Bot
 {
     public function extractDataFromMessage()
@@ -58,6 +60,6 @@ class Bot
         curl_setopt($ch, CURLOPT_HTTPHEADER, ["Content-Type: application/json"]);
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($messageData));
-        Log::info(print_r(curl_exec($ch), true));
+        \Log::info(print_r(curl_exec($ch), true));
     }
 }

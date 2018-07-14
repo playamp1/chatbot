@@ -8,6 +8,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use App\Bot\Bot;
+use App\Bot\Chat;
 
 class BotHandler implements ShouldQueue
 {
